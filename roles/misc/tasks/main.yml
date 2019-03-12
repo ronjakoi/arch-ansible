@@ -11,6 +11,7 @@
       - mosh
       - wget
 
+      - htop
       - redshift
       - jre-openjdk
       - transmission-gtk
