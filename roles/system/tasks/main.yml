@@ -6,8 +6,18 @@
       [multilib]
       Include = /etc/pacman.d/mirrorlist
 
+- name: Set make job count
+  set_fact:
+    make_job_count: "{{ (ansible_processor_vcpus * 0.8) | int }}"
+  when: ansible_processor_vcpus > 1
+
+- name: Set make job count
+  set_fact:
+    make_job_count: 1
+  when: ansible_processor_vcpus == 1
+
 - name: Set MAKEFLAGS for makepkg
   lineinfile:
     path: /etc/makepkg.conf
     regexp: '^#?MAKEFLAGS='
-    line: 'MAKEFLAGS="-j{{ (ansible_processor_vcpus * 0.8) | int }}"'
+    line: 'MAKEFLAGS="-j{{ make_job_count }}"'
