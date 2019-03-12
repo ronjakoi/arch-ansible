@@ -4,14 +4,21 @@
     src: xorg_config/
     dest: /etc/X11/xorg.conf.d/
 
-- name: Install desktop environment things
+- name: Install xorg and desktop environment things
   package:
     name:
+      # server and drivers
       - xorg-server
       - xf86-video-amdgpu
+      - vulkan-icd-loader
+      - lib32-vulkan-icd-loader
+      - vulkan-radeon
+      - lib32-vulkan-radeon
+      # login manager
       - lightdm
       - lightdm-gtk-greeter
       - lightdm-gtk-greeter-settings
+      # desktop things
       - light-locker
       - gnome-screensaver
       - xfce4
