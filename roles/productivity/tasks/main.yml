@@ -1,0 +1,9 @@
+---
+- name: Install productivity software
+  package:
+    name:
+      - thunderbird
+      - libreoffice-still
+      - gimp
+      - darktable
+    state: present

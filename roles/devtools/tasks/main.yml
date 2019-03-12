@@ -1,0 +1,8 @@
+---
+- name: Install development tools etc.
+  package:
+    name:
+      - vim
+      - git
+      - fakeroot
+    state: present

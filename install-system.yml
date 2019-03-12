@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  become: yes
+  roles:
+    - network
+    - system
+    - xorg
+    - devtools
+    - productivity
+    - misc

@@ -1,0 +1,26 @@
+---
+- name: Install xorg config files
+  copy:
+    src: xorg_config/
+    dest: /etc/X11/xorg.conf.d/
+
+- name: Install desktop environment things
+  package:
+    name:
+      - xorg-server
+      - xf86-video-amdgpu
+      - lightdm
+      - lightdm-gtk-greeter
+      - lightdm-gtk-greeter-settings
+      - light-locker
+      - gnome-screensaver
+      - xfce4
+      - xfce4-goodies
+    state:
+      present
+
+- name: Enable and start lightdm service
+  service:
+    name: lightdm
+    state: started
+    enabled: yes

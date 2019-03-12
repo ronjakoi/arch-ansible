@@ -1,0 +1,13 @@
+---
+- name: Install multimedia software
+  package:
+    name:
+      - pulseaudio
+      - pavucontrol
+      - vlc
+      # things for Steam
+      - lib32-mesa
+      - steam
+      - wqy-zenhei
+      - ttf-liberation
+    state: present

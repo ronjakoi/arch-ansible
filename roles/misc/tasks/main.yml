@@ -1,0 +1,17 @@
+---
+- name: Install miscellaneous utility software
+  package:
+    name:
+      # browsers
+      - firefox
+      - chromium
+
+      # remote connections
+      - openssh
+      - mosh
+
+      - redshift
+      - jre-openjdk
+      - transmission-gtk
+      - ttf-dejavu
+    state: present

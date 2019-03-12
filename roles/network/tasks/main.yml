@@ -1,0 +1,9 @@
+---
+- name: Enable network services
+  service:
+    name: "{{ item }}"
+    enabled: yes
+    state: started
+  loop:
+    - systemd-networkd.service
+    - dhcpcd.service
