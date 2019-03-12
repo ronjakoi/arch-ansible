@@ -7,3 +7,16 @@
   loop:
     - systemd-networkd.service
     - dhcpcd.service
+
+- name: Install nfs-utils
+  package:
+    name: nfs-utils
+    state: present
+
+- name: "Mount NFS share from {{ lan_file_server }}"
+  mount:
+    src: "{{ lan_file_server }}:/storage"
+    path: /storage
+    fstype: nfs4
+    opts: _netdev,auto,soft
+    state: mounted
