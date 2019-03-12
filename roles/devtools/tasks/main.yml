@@ -8,4 +8,5 @@
       - qtcreator
       - python-pip
       - rustup
+      - base-devel
     state: present
