@@ -15,6 +15,9 @@ This way reinstallation should be swift in case of another system failure.
 - Boot loader (e.g. Grub) installation
 - Creation and/or mounting of local filesystems
 - Installation of Ansible itself &mdash; and `sudo`
+- Per-user configuration
+  - I have `/home` on a separate partition which remains untouched between
+    system reinstalls. (It is also regularly backed up, of course.)
 
 ### Packages needed for this playbook to function
 
