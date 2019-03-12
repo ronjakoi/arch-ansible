@@ -9,6 +9,7 @@
       # remote connections
       - openssh
       - mosh
+      - wget
 
       - redshift
       - jre-openjdk
