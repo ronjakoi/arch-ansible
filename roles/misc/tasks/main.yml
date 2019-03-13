@@ -6,11 +6,6 @@
       - firefox
       - chromium
 
-      # remote connections
-      - openssh
-      - mosh
-      - wget
-
       - htop
       - redshift
       - jre-openjdk

@@ -1,4 +1,34 @@
 ---
+- name: Install network software
+  package:
+    name:
+      - openssh
+      - rsync
+      - mosh
+      - wget
+
+- name: Install sshd config file
+  copy:
+    src: sshd_config
+    dest: /etc/ssh/sshd_config
+
+- name: Create /root/.ssh
+  file:
+    path: /root/.ssh
+    state: directory
+    owner: root
+    group: root
+    mode: 0700
+
+# This is so the file server can log in and pull backups
+- name: Install authorized_keys for root
+  copy:
+    dest: /root/.ssh/authorized_keys
+    content: "{{ root_authorized_keys }}"
+    owner: root
+    group: root
+    mode: 0600
+
 - name: Enable network services
   service:
     name: "{{ item }}"
@@ -7,6 +37,7 @@
   loop:
     - systemd-networkd.service
     - dhcpcd.service
+    - sshd.socket
 
 - name: Install nfs-utils
   package:
