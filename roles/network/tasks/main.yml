@@ -6,6 +6,7 @@
       - rsync
       - mosh
       - wget
+      - openntpd
 
 - name: Install sshd config file
   copy:
@@ -29,6 +30,11 @@
     group: root
     mode: 0600
 
+- name: Install ntpd.conf
+  copy:
+    dest: /etc/ntpd.conf
+    src: ntpd.conf
+
 - name: Enable network services
   service:
     name: "{{ item }}"
@@ -38,6 +44,7 @@
     - systemd-networkd.service
     - dhcpcd.service
     - sshd.socket
+    - openntpd.service
 
 - name: Install nfs-utils
   package:
