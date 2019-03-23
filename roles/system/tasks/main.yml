@@ -1,4 +1,14 @@
 ---
+- name: Configure initramfs
+  copy:
+    dest: /etc/
+    src: mkinitcpio.conf
+  register: mkinitcpio_conf
+
+- name: Rebuild initramfs
+  command: mkinitcpio -g /boot/initramfs-linux.img
+  when: mkinitcpio_conf.changed
+
 - name: Enable multilib in pacman.conf
   blockinfile:
     path: /etc/pacman.conf
