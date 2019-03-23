@@ -6,4 +6,5 @@
       - libreoffice-still
       - gimp
       - darktable
+      - evince
     state: present

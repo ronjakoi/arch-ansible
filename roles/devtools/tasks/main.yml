@@ -9,4 +9,6 @@
       - python-pip
       - rustup
       - base-devel
+      - docker
+      - docker-compose
     state: present

@@ -11,4 +11,12 @@
       - jre-openjdk
       - transmission-gtk
       - ttf-dejavu
+
+      - pixz
+      - pigz
+      - file-roller
+      - unrar
+
+      - gvfs
+      - gvfs-mtp
     state: present

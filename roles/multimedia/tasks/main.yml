@@ -10,4 +10,6 @@
       - steam
       - wqy-zenhei
       - ttf-liberation
+      # games
+      - stone-soup
     state: present
