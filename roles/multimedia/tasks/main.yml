@@ -5,6 +5,7 @@
       - pulseaudio
       - pavucontrol
       - vlc
+      - mesa-vdpau
       # things for Steam
       - lib32-mesa
       - steam
