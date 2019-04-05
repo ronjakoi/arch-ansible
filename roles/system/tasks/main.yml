@@ -18,13 +18,7 @@
 
 - name: Set make job count
   set_fact:
-    make_job_count: "{{ (ansible_processor_vcpus * 0.8) | int }}"
-  when: ansible_processor_vcpus > 1
-
-- name: Set make job count
-  set_fact:
-    make_job_count: 1
-  when: ansible_processor_vcpus == 1
+    make_job_count: "{{ [1, (ansible_processor_vcpus * 0.8) | int] | max }}"
 
 - name: Set MAKEFLAGS for makepkg
   lineinfile:
