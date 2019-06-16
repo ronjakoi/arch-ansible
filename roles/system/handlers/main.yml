@@ -1,0 +1,3 @@
+---
+- name: Rebuild initramfs
+  command: mkinitcpio -g /boot/initramfs-linux.img

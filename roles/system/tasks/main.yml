@@ -3,11 +3,8 @@
   copy:
     dest: /etc/
     src: mkinitcpio.conf
-  register: mkinitcpio_conf
-
-- name: Rebuild initramfs
-  command: mkinitcpio -g /boot/initramfs-linux.img
-  when: mkinitcpio_conf.changed
+  notify:
+    - Rebuild initramfs
 
 - name: Enable multilib in pacman.conf
   blockinfile:
