@@ -21,3 +21,10 @@
       - gvfs
       - gvfs-mtp
     state: present
+
+- name: Install lib32 packages
+  package:
+    name:
+      - lib32-libpulse
+      - lib32-util-linux
+    state: present

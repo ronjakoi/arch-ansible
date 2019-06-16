@@ -11,4 +11,5 @@
       - base-devel
       - docker
       - docker-compose
+      - ripgrep
     state: present
