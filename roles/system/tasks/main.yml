@@ -13,12 +13,15 @@
       [multilib]
       Include = /etc/pacman.d/mirrorlist
 
-- name: Set make job count
+- name: Set job count
   set_fact:
-    make_job_count: "{{ [1, (ansible_processor_vcpus * 0.8) | int] | max }}"
+    job_count: "{{ [1, (ansible_processor_vcpus * 0.8) | int] | max }}"
 
-- name: Set MAKEFLAGS for makepkg
+- name: Enable parallelism for jobs in makepkg
   lineinfile:
     path: /etc/makepkg.conf
-    regexp: '^#?MAKEFLAGS='
-    line: 'MAKEFLAGS="-j{{ make_job_count }}"'
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+  loop:
+    - { regexp: '^#?MAKEFLAGS=', line: 'MAKEFLAGS="-j{{ job_count }}"' }
+    - { regexp: '^#?COMPRESSXZ=', line: 'COMPRESSXZ=(xz -c -z -T{{ job_count }} -)' }
