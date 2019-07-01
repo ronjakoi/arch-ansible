@@ -20,6 +20,8 @@
 
       - gvfs
       - gvfs-mtp
+
+      - pwgen
     state: present
 
 - name: Install lib32 packages
