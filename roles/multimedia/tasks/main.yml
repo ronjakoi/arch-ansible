@@ -13,4 +13,8 @@
       - ttf-liberation
       # games
       - stone-soup
+      # dvd things
+      - libdvdread
+      - libdvdcss
+      - libdvdnav
     state: present
